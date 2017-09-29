@@ -1,0 +1,61 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/voicerecognitionwallpaperpng"
+    android:layout_centerInParent="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <ImageButton
+                    android:id="@+id/btn_assest"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    app:srcCompat="@drawable/open_epub_asset_file_resize" />
+
+                <ImageButton
+                    android:id="@+id/btn_raw"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    app:srcCompat="@drawable/open_epub_raw_file_resize" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fabEpubOpenControl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/btn_assest"
+            android:layout_alignParentBottom="true"
+            android:layout_alignRight="@+id/btn_assest"
+            android:layout_gravity="right|bottom"
+            android:layout_marginBottom="32dp"
+            android:layout_weight="1"
+            android:src="@android:drawable/ic_menu_more"
+            app:elevation="6dp"
+            app:pressedTranslationZ="12dp" />
+
+    </LinearLayout>
+
+</RelativeLayout>

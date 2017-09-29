@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.suttipongk.testaboc">
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.CAMERA"/>
+
+    <uses-feature android:name="android.hardware.camera.autofocus"/>
+    <uses-feature android:name="android.hardware.camera.front"/>
+    <uses-feature android:name="android.hardware.camera.front.autofocus"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <!-- USE_CREDENTIALS for Google+ login -->
+    <uses-permission android:name="android.permission.USE_CREDENTIALS" />
+    <!-- GET_ACCOUNTS -->
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="true" />
+
+    <application
+        android:hardwareAccelerated="false"
+        android:largeHeap="true"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name=".MainActivityAboc"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="com.scanlibrary.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths"/>
+        </provider>
+
+        <!-- Scan Image Paper -->
+        <activity
+            android:name="com.scanlibrary.ScanActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:configChanges="orientation|screenSize">
+        </activity>
+
+        <service
+            android:name=".FirebaseMessaging">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+
+        <service
+            android:name=".FirebaseInstanceIDService">
+            <intent-filter>
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
+            </intent-filter>
+        </service>
+
+        <!-- start google plus login -->
+        <activity android:name="com.facebook.FacebookActivity" />
+
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/facebook_app_id" />
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+        <!-- end google plus login -->
+
+        <activity
+            android:name=".MainActivityNavigationDrawer"
+            android:theme="@style/nLiveoDrawer"
+            android:screenOrientation="landscape"
+            android:label="@string/app_name">
+        </activity>
+
+        <activity
+            android:name=".IntroSliderAboc"
+            android:theme="@style/FullscreenTheme" />
+
+        <activity
+            android:name=".MainActivityIntroSlide"
+            android:theme="@style/FullscreenTheme" />
+
+        <!-- nDrawerActivity -->
+        <activity
+            android:name=".SettingsActivityNavigationDrawer"
+            android:screenOrientation="landscape"
+            android:label="@string/settings">
+        </activity>
+
+        <!-- Login -->
+        <activity
+            android:name=".MainActivityLogin"
+            android:screenOrientation="landscape">
+        </activity>
+
+        <activity
+            android:name=".LoginEmailAndPassword"
+            android:screenOrientation="landscape">
+        </activity>
+
+        <activity
+            android:name=".LoginGoogle"
+            android:screenOrientation="landscape">
+        </activity>
+
+        <activity
+            android:name=".LoginFacebook"
+            android:screenOrientation="landscape">
+        </activity>
+
+        <activity
+            android:name=".LoginOtherAccount"
+            android:screenOrientation="landscape">
+        </activity>
+
+        <activity
+            android:name=".LoginWithPhone"
+            android:screenOrientation="landscape">
+        </activity>
+
+        <activity
+            android:name=".ManageUserActivity"
+            android:screenOrientation="landscape">
+        </activity>
+
+        <!-- Chat Room -->
+        <activity
+            android:name=".ChatLoginActivity"
+            android:screenOrientation="landscape">
+        </activity>
+
+        <!--<activity android:name="com.example.suttipongk.chatroom.ChatMainActivity">-->
+            <!--<intent-filter>-->
+                <!--<action android:name="applicationB.intent.action.Launch" />-->
+                <!--<category android:name="android.intent.category.DEFAULT" />-->
+            <!--</intent-filter>-->
+        <!--</activity>-->
+
+        <activity
+            android:name=".ChatMainActivity"
+            android:screenOrientation="landscape">
+        </activity>
+
+        <!-- Customer Service -->
+        <activity
+            android:name=".MainActivityRequestRepair"
+            android:screenOrientation="landscape">
+        </activity>
+
+        <!-- Data of Firebase -->
+        <activity
+            android:name=".MainActivityAddFirebaseData"
+            android:screenOrientation="landscape">
+        </activity>
+
+        <!-- Update Notification of Firebase -->
+        <activity
+            android:name=".MainActivityUpdateNotificationFallDetectionFirebaseData"
+            android:screenOrientation="landscape">
+        </activity>
+
+        <!-- Update Data of Firebase -->
+        <activity
+            android:name=".MainActivityUpdateAndDeleteFirebaseData"
+            android:screenOrientation="landscape">
+        </activity>
+
+        <activity
+            android:name=".MainActivityScanPaper"
+            android:screenOrientation="landscape"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:configChanges="orientation|screenSize">
+        </activity>
+
+        <!-- IOT -->
+        <activity
+            android:name=".AndroidIOTWebviewActivity"
+            android:screenOrientation="landscape"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:configChanges="orientation|screenSize">
+        </activity>
+
+        <activity
+            android:name=".MainActivityAddEBook"
+            android:label="@string/app_name"
+            android:supportsRtl="true">
+        </activity>
+
+        <activity
+            android:name=".HomeActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:configChanges="orientation|screenSize">
+        </activity>
+
+        <activity
+            android:name=".FdActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="landscape">
+        </activity>
+
+        <activity
+            android:name="com.folioreader.activity.FolioActivity"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:configChanges="orientation|screenSize">
+        </activity>
+
+        <activity
+            android:name=".Homepage"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"></activity>
+
+        <activity
+            android:name=".BluetoothManager"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"></activity>
+
+        <activity
+            android:name=".ControlLightManager"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"></activity>
+
+        <activity
+            android:name=".DeviceListActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"></activity>
+
+        <activity
+            android:name=".ReadingBookManager"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"></activity>
+
+        <activity
+            android:name=".VideoManager"
+            android:label="@string/app_name"
+            android:screenOrientation="landscape"></activity>
+
+        <service
+            android:name=".FacePredictionService"
+            android:exported="false"></service>
+    </application>
+
+</manifest>

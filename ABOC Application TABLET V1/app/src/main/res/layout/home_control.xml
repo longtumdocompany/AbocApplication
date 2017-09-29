@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/backgroundhomepage"
+    android:weightSum="1">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="91dp"
+        android:visibility="invisible"
+        app:srcCompat="@drawable/homemenu"
+        android:layout_weight="0.49" />
+
+    <ImageButton
+        android:id="@+id/buttonselectbluetooth"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@null"
+        app:srcCompat="@drawable/buttonselectbluetooth" />
+
+    <ImageButton
+        android:id="@+id/buttoncontrolpage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@null"
+        app:srcCompat="@drawable/buttoncontrolpage" />
+
+    <ImageButton
+        android:id="@+id/buttoncontrollight"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@null"
+        app:srcCompat="@drawable/buttoncontrollight" />
+
+    <ImageButton
+        android:id="@+id/buttonhowtopage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@null"
+        app:srcCompat="@drawable/buttonhowtopage" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fabSpeechControl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|bottom|end"
+        android:src="@android:drawable/ic_menu_more"
+        app:elevation="6dp"
+        app:pressedTranslationZ="12dp" />
+
+</LinearLayout>

@@ -1,0 +1,102 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion "25.0.2"
+    defaultConfig {
+        applicationId "com.example.suttipongk.testaboc"
+        minSdkVersion 15
+        targetSdkVersion 25
+        versionCode 1
+        versionName "1.0"
+        multiDexEnabled true    // This line was causing above problem
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        externalNativeBuild {
+            cmake {
+                cppFlags ""
+            }
+        }
+
+        ndk {
+            abiFilters 'x86', 'x86_64', 'armeabi', 'armeabi-v7a', 'arm64-v8a'
+        }
+        externalNativeBuild {
+            cmake {
+                arguments '-DANDROID_PLATFORM=android-13', '-DANDROID_TOOLCHAIN=clang', '-DANDROID_STL=gnustl_static'
+                cppFlags "-frtti", "-fexceptions"
+            }
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    externalNativeBuild {
+        cmake {
+            path "src/main/cpp/CMakeLists.txt"
+        }
+    }
+    packagingOptions {
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/LICENSE-FIREBASE.txt'
+    }
+
+    /*sourceSets { main { jni.srcDirs = [] } }
+    productFlavors {
+        x86 {
+            ndk {
+                abiFilter "x86"
+            }
+        }
+        armv7a {
+            ndk {
+                abiFilter "armeabi-v7a"
+            }
+        }
+    }*/
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+
+    compile ('io.socket:socket.io-client:0.8.3') {
+        exclude group: 'org.json', module: 'json'
+    }
+
+    compile 'com.android.support:appcompat-v7:25.3.1'
+    testCompile 'junit:junit:4.12'
+    compile 'com.folioreader:folioreader:0.2.5'
+    compile 'com.folioreader:webViewMarker:0.2.5'
+    compile project(':openCVLibrary249')
+    compile 'com.joanzapata.pdfview:android-pdfview:1.0.4@aar'
+    compile 'br.com.liveo:navigationdrawer-material:2.5.1'
+    compile 'com.balysv:material-ripple:1.0.2'
+    compile 'com.android.support:support-v4:25.3.1'
+    compile 'com.android.support:design:25.3.1'
+    compile 'com.github.bumptech.glide:glide:3.7.0'
+    compile 'io.realm:realm-android:0.82.1'
+    compile 'com.android.support:recyclerview-v7:25.3.1'            // Realm
+    compile 'com.android.support:cardview-v7:25.3.1'                // RecyclerView
+    compile 'com.facebook.android:facebook-android-sdk:4.23.0'      // CardView
+    compile "com.google.firebase:firebase-auth:$firebaseLibraryVersion"
+    compile "com.google.android.gms:play-services-auth:$firebaseLibraryVersion"
+    compile 'com.google.firebase:firebase-messaging:10.0.1'
+    compile 'com.firebase:firebase-client-android:2.3.1+'
+    compile 'com.google.firebase:firebase-core:10.0.1'
+    compile 'com.google.firebase:firebase-database:10.0.1'
+    compile files('libs/zxing-2.1.jar')
+    compile files('libs/zxing-javase.jar')
+    compile files('libs/json-simple-1.1.1.jar')
+    compile project(':scanlibrary')
+    compile 'com.github.paolorotolo:appintro:3.3.0'
+}
+apply plugin: 'com.google.gms.google-services'

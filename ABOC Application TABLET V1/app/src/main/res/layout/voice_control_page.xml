@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:background="@drawable/backgroundvoicecontrolpage"
+    android:layout_height="match_parent"
+    android:weightSum="1">
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="wrap_content"
+        android:layout_height="95dp"
+        android:visibility="invisible"
+        app:srcCompat="@drawable/voicecontrolpagemenu" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:weightSum="1">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="410dp"
+                android:layout_weight="0.55">
+
+                <ImageButton
+                    android:id="@+id/imageButtonControlPageLeft"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_below="@+id/book"
+                    android:layout_marginLeft="11dp"
+                    android:layout_marginStart="11dp"
+                    android:layout_marginTop="49dp"
+                    android:background="@null"
+                    app:srcCompat="@drawable/buttonleft" />
+
+                <ImageButton
+                    android:id="@+id/imageButtonControlPageRight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignTop="@+id/imageButtonControlPageLeft"
+                    android:background="@null"
+                    app:srcCompat="@drawable/buttonright" />
+
+                <ImageButton
+                    android:id="@+id/imageButtonControlPageVoice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignEnd="@+id/book"
+                    android:layout_alignLeft="@+id/book"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignRight="@+id/book"
+                    android:layout_alignStart="@+id/book"
+                    android:layout_marginBottom="90dp"
+                    android:background="@null"
+                    app:srcCompat="@drawable/micbutton" />
+
+                <ImageView
+                    android:id="@+id/book"
+                    android:layout_width="wrap_content"
+                    android:layout_height="100dp"
+                    android:layout_above="@+id/imageButtonControlPageVoice"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="23dp"
+                    app:srcCompat="@drawable/bookicon" />
+
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/tvFalado"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.55"
+                android:text="Please speaking with your speaker phone"
+                android:textAlignment="center"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
