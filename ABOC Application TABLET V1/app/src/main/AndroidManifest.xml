@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.suttipongk.testaboc">
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.longarndu.aboc.mainaboc"
+
+    android:versionCode="2"
+    android:versionName="2.0">
+
+    <uses-sdk android:minSdkVersion="7"
+        android:targetSdkVersion="25"
+        android:maxSdkVersion="26" />
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
@@ -16,7 +24,7 @@
     <!-- USE_CREDENTIALS for Google+ login -->
     <uses-permission android:name="android.permission.USE_CREDENTIALS" />
     <!-- GET_ACCOUNTS -->
-    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS"/>
 
     <uses-feature
         android:name="android.hardware.camera"
@@ -30,7 +38,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name=".MainActivityAboc"
+            android:name="com.longarndu.aboc.mainaboc.MainActivityAboc"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -58,14 +66,14 @@
         </activity>
 
         <service
-            android:name=".FirebaseMessaging">
+            android:name="com.longarndu.aboc.mainaboc.FirebaseMessaging">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT"/>
             </intent-filter>
         </service>
 
         <service
-            android:name=".FirebaseInstanceIDService">
+            android:name="com.longarndu.aboc.mainaboc.FirebaseInstanceIDService">
             <intent-filter>
                 <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
             </intent-filter>
@@ -83,107 +91,89 @@
         <!-- end google plus login -->
 
         <activity
-            android:name=".MainActivityNavigationDrawer"
+            android:name="com.longarndu.aboc.mainaboc.MainActivityNavigationDrawer"
             android:theme="@style/nLiveoDrawer"
             android:screenOrientation="landscape"
             android:label="@string/app_name">
         </activity>
 
         <activity
-            android:name=".IntroSliderAboc"
+            android:name="com.longarndu.aboc.mainaboc.IntroSliderAboc"
             android:theme="@style/FullscreenTheme" />
 
         <activity
-            android:name=".MainActivityIntroSlide"
+            android:name="com.longarndu.aboc.mainaboc.MainActivityIntroSlide"
             android:theme="@style/FullscreenTheme" />
 
         <!-- nDrawerActivity -->
         <activity
-            android:name=".SettingsActivityNavigationDrawer"
+            android:name="com.longarndu.aboc.mainaboc.SettingsActivityNavigationDrawer"
             android:screenOrientation="landscape"
             android:label="@string/settings">
         </activity>
 
         <!-- Login -->
         <activity
-            android:name=".MainActivityLogin"
+            android:name="com.longarndu.aboc.mainaboc.MainActivityLogin"
             android:screenOrientation="landscape">
         </activity>
 
         <activity
-            android:name=".LoginEmailAndPassword"
+            android:name="com.longarndu.aboc.mainaboc.LoginEmailAndPassword"
             android:screenOrientation="landscape">
         </activity>
 
         <activity
-            android:name=".LoginGoogle"
+            android:name="com.longarndu.aboc.mainaboc.LoginGoogle"
             android:screenOrientation="landscape">
         </activity>
 
         <activity
-            android:name=".LoginFacebook"
+            android:name="com.longarndu.aboc.mainaboc.LoginFacebook"
             android:screenOrientation="landscape">
         </activity>
 
         <activity
-            android:name=".LoginOtherAccount"
+            android:name="com.longarndu.aboc.mainaboc.LoginOtherAccount"
             android:screenOrientation="landscape">
         </activity>
 
         <activity
-            android:name=".LoginWithPhone"
+            android:name="com.longarndu.aboc.mainaboc.LoginWithPhone"
             android:screenOrientation="landscape">
         </activity>
 
         <activity
-            android:name=".ManageUserActivity"
-            android:screenOrientation="landscape">
-        </activity>
-
-        <!-- Chat Room -->
-        <activity
-            android:name=".ChatLoginActivity"
-            android:screenOrientation="landscape">
-        </activity>
-
-        <!--<activity android:name="com.example.suttipongk.chatroom.ChatMainActivity">-->
-            <!--<intent-filter>-->
-                <!--<action android:name="applicationB.intent.action.Launch" />-->
-                <!--<category android:name="android.intent.category.DEFAULT" />-->
-            <!--</intent-filter>-->
-        <!--</activity>-->
-
-        <activity
-            android:name=".ChatMainActivity"
+            android:name="com.longarndu.aboc.mainaboc.ManageUserActivity"
             android:screenOrientation="landscape">
         </activity>
 
         <!-- Customer Service -->
         <activity
-            android:name=".MainActivityRequestRepair"
+            android:name="com.longarndu.aboc.mainaboc.MainActivityRequestRepair"
             android:screenOrientation="landscape">
         </activity>
 
         <!-- Data of Firebase -->
         <activity
-            android:name=".MainActivityAddFirebaseData"
+            android:name="com.longarndu.aboc.mainaboc.MainActivityAddFirebaseData"
             android:screenOrientation="landscape">
         </activity>
 
         <!-- Update Notification of Firebase -->
         <activity
-            android:name=".MainActivityUpdateNotificationFallDetectionFirebaseData"
+            android:name="com.longarndu.aboc.mainaboc.MainActivityUpdateNotificationFallDetectionFirebaseData"
             android:screenOrientation="landscape">
         </activity>
 
         <!-- Update Data of Firebase -->
         <activity
-            android:name=".MainActivityUpdateAndDeleteFirebaseData"
+            android:name="com.longarndu.aboc.mainaboc.MainActivityUpdateAndDeleteFirebaseData"
             android:screenOrientation="landscape">
         </activity>
 
         <activity
-            android:name=".MainActivityScanPaper"
+            android:name="com.longarndu.aboc.mainaboc.MainActivityScanPaper"
             android:screenOrientation="landscape"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar"
@@ -192,7 +182,7 @@
 
         <!-- IOT -->
         <activity
-            android:name=".AndroidIOTWebviewActivity"
+            android:name="com.longarndu.aboc.mainaboc.AndroidIOTWebviewActivity"
             android:screenOrientation="landscape"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar"
@@ -200,20 +190,20 @@
         </activity>
 
         <activity
-            android:name=".MainActivityAddEBook"
+            android:name="com.longarndu.aboc.mainaboc.MainActivityAddEBook"
             android:label="@string/app_name"
             android:supportsRtl="true">
         </activity>
 
         <activity
-            android:name=".HomeActivity"
+            android:name="com.longarndu.aboc.mainaboc.HomeActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar"
             android:configChanges="orientation|screenSize">
         </activity>
 
         <activity
-            android:name=".FdActivity"
+            android:name="com.longarndu.aboc.mainaboc.FdActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar"
             android:screenOrientation="landscape">
@@ -227,37 +217,37 @@
         </activity>
 
         <activity
-            android:name=".Homepage"
+            android:name="com.longarndu.aboc.mainaboc.Homepage"
             android:label="@string/app_name"
             android:screenOrientation="portrait"></activity>
 
         <activity
-            android:name=".BluetoothManager"
+            android:name="com.longarndu.aboc.mainaboc.BluetoothManager"
             android:label="@string/app_name"
             android:screenOrientation="portrait"></activity>
 
         <activity
-            android:name=".ControlLightManager"
+            android:name="com.longarndu.aboc.mainaboc.ControlLightManager"
             android:label="@string/app_name"
             android:screenOrientation="portrait"></activity>
 
         <activity
-            android:name=".DeviceListActivity"
+            android:name="com.longarndu.aboc.mainaboc.DeviceListActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait"></activity>
 
         <activity
-            android:name=".ReadingBookManager"
+            android:name="com.longarndu.aboc.mainaboc.ReadingBookManager"
             android:label="@string/app_name"
             android:screenOrientation="portrait"></activity>
 
         <activity
-            android:name=".VideoManager"
+            android:name="com.longarndu.aboc.mainaboc.VideoManager"
             android:label="@string/app_name"
             android:screenOrientation="landscape"></activity>
 
         <service
-            android:name=".FacePredictionService"
+            android:name="com.longarndu.aboc.mainaboc.FacePredictionService"
             android:exported="false"></service>
     </application>
 

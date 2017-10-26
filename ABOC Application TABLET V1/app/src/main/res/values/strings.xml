@@ -1,22 +1,23 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="MissingTranslation">
 
         <!-- AbocControl -->
-        <string name="app_name">AbocApplication</string>
-        <string name="none_paired">nonePaired</string>
-        <string name="connect">Connect...</string>
-        <string name="not_suport">not suport</string>
-        <string-array name="comandos" ><item>test</item></string-array>
+        <string name="app_name">Longarndu</string>
+        <string name="none_paired" translatable="false">nonePaired</string>
+        <string name="connect" translatable="false">Connect...</string>
+        <string name="not_suport" translatable="false">not suport</string>
+        <string-array name="comandos" translatable="false"><item>test</item></string-array>
 
         <!-- Navigation -->
         <string name="sign_in">Sign in</string>
         <string name="inbox">Customer Service Inbox</string>
-        <string name="speechrecognition">Speech Recognition</string>
-        <string name="facedetection">Face Detection</string>
-        <string name="scanpaper">Scan Paper</string>
+        <string name="speechrecognition" translatable="false">Speech Recognition</string>
+        <string name="facedetection" translatable="false">Face Detection</string>
+        <string name="scanpaper" translatable="false">Scan Paper</string>
         <string name="sent_mail">Sent Mail</string>
-        <string name="iot">Internet of Things</string>
-        <string name="fall_detection">Fall Detection</string>
-        <string name="chat_room">Chat Room</string>
+        <string name="iot" translatable="false">Internet of Things</string>
+        <string name="fall_detection" translatable="false">Fall Detection</string>
+        <string name="chat_room" translatable="false">Chat Room</string>
         <string name="categories">Categories</string>
         <string name="settings">Settings E-Book</string>
         <string name="add">Add</string>
@@ -42,78 +43,62 @@
         <string name="low_memory_message">Your phone is low on memory, you may feel some lags while editing images.</string>
 
         <!-- Login -->
-        <string name="action_logout">Logout</string>
-        <string name="login_with_facebook">Login with Facebook</string>
-        <string name="login_with_google">Login with Google+</string>
-        <string name="login_with_twitter">Login with Twitter</string>
-        <string name="login_with_password">Login with Password</string>
-        <string name="login_anonymously">Login Anonymously</string>
+        <string name="action_logout" translatable="false">Logout</string>
+        <string name="login_with_facebook" translatable="false">Login with Facebook</string>
+        <string name="login_with_google" translatable="false">Login with Google+</string>
+        <string name="login_with_twitter" translatable="false">Login with Twitter</string>
+        <string name="login_with_password" translatable="false">Login with Password</string>
+        <string name="login_anonymously" translatable="false">Login Anonymously</string>
 
         <!-- List -->
-        <string name="name">ListViewBaseAdapter</string>
-        <string name="image">Thumbnail</string>
+        <string name="name" translatable="false">ListViewBaseAdapter</string>
+        <string name="image" translatable="false">Thumbnail</string>
 
         <!--******************************************** AUTH ************************************************-->
-        <string name="label_google_sign_in">Firebase + Google Sign In</string>
-        <string name="label_facebook_login">Firebase + Facebook Login</string>
-        <string name="label_twitter_login">Firebase + Twitter Login</string>
-        <string name="label_emailpassword">Email/Password Authentication</string>
-        <string name="label_anonymous_auth">Anonymous Authentication</string>
-        <string name="label_phone_auth">Phone Authentication</string>
-        <string name="label_manage_user">Manage User</string>
+        <string name="label_google_sign_in" translatable="false">Firebase + Google Sign In</string>
+        <string name="label_facebook_login" translatable="false">Firebase + Facebook Login</string>
+        <string name="label_twitter_login" translatable="false">Firebase + Twitter Login</string>
+        <string name="label_emailpassword" translatable="false">Email/Password Authentication</string>
+        <string name="label_anonymous_auth" translatable="false">Anonymous Authentication</string>
+        <string name="label_phone_auth" translatable="false">Phone Authentication</string>
+        <string name="label_manage_user" translatable="false">Manage User</string>
 
-        <string name="create_account">Create Account</string>
-        <string name="enter_to_main">Enter</string>
-        <string name="sign_out">Sign Out</string>
-        <string name="disconnect">Disconnect</string>
-        <string name="signed_out">Signed Out</string>
+        <string name="create_account" translatable="false">Create Account</string>
+        <string name="enter_to_main" translatable="false">Enter</string>
+        <string name="sign_out" translatable="false">Sign Out</string>
+        <string name="disconnect" translatable="false">Disconnect</string>
+        <string name="signed_out" translatable="false">Signed Out</string>
 
-        <string name="hint_email">Email</string>
-        <string name="hint_password">Password</string>
-        <string name="hint_name">Name</string>
-        <string name="hint_photo">Photo URL</string>
+        <string name="hint_email" translatable="false">Email</string>
+        <string name="hint_password" translatable="false">Password</string>
+        <string name="hint_name" translatable="false">Name</string>
+        <string name="hint_photo" translatable="false">Photo URL</string>
 
-        <string name="logout">Logout?</string>
-        <string name="anonymous_signin">Anonymous Sign In</string>
-        <string name="account_link">Account Linking</string>
-        <string name="account_link_btn">Link Account</string>
-        <string name="title_provider">User\'s provider</string>
-        <string name="title_profile">User\'s profile</string>
-        <string name="title_update_profile">Update user\'s profile</string>
-        <string name="title_update_email">Update user\'s email</string>
-        <string name="title_update_password">Update user\'s password</string>
-        <string name="title_send_password_reset">Send password reset</string>
-        <string name="title_delete_user">Delete a user</string>
-        <string name="updated">%s updated.</string>
-        <string name="verify">Verify</string>
+        <string name="logout" translatable="false">Logout?</string>
+        <string name="anonymous_signin" translatable="false">Anonymous Sign In</string>
+        <string name="account_link" translatable="false">Account Linking</string>
+        <string name="account_link_btn" translatable="false">Link Account</string>
+        <string name="title_provider" translatable="false">User\'s provider</string>
+        <string name="title_profile" translatable="false">User\'s profile</string>
+        <string name="title_update_profile" translatable="false">Update user\'s profile</string>
+        <string name="title_update_email" translatable="false">Update user\'s email</string>
+        <string name="title_update_password" translatable="false">Update user\'s password</string>
+        <string name="title_send_password_reset" translatable="false">Send password reset</string>
+        <string name="title_delete_user" translatable="false">Delete a user</string>
+        <string name="updated" translatable="false">%s updated.</string>
+        <string name="verify" translatable="false">Verify</string>
 
-        <string name="start_phone_auth">Start</string>
-        <string name="verify_phone_auth">Verify</string>
-        <string name="resend_phone_auth">Resend</string>
-        <string name="hint_phone_number">Phone Number</string>
-        <string name="hint_verification_code">Verification Code</string>
-        <string name="status_verification_succeeded">Verification succeeded</string>
-        <string name="status_sign_in_failed">Sign-in failed</string>
-        <string name="instant_validation">(instant validation)</string>
-        <string name="firebase_status_fmt">Firebase User: %s</string>
+        <string name="start_phone_auth" translatable="false">Start</string>
+        <string name="verify_phone_auth" translatable="false">Verify</string>
+        <string name="resend_phone_auth" translatable="false">Resend</string>
+        <string name="hint_phone_number" translatable="false">Phone Number</string>
+        <string name="hint_verification_code" translatable="false">Verification Code</string>
+        <string name="status_verification_succeeded" translatable="false">Verification succeeded</string>
+        <string name="status_sign_in_failed" translatable="false">Sign-in failed</string>
+        <string name="instant_validation" translatable="false">(instant validation)</string>
+        <string name="firebase_status_fmt" translatable="false">Firebase User: %s</string>
 
         <!--******************************************** Skip ********************************************-->
-        <string name="app_intro_skip">Skip</string>
-
-        <!--******************************************** CHAT ROOM ********************************************-->
-        <string name="action_leave">Leave</string>
-        <string name="action_send">Send</string>
-        <string name="prompt_message">Message</string>
-        <string name="error_connect">Failed to connect</string>
-
-        <!-- chatMessages -->
-        <string name="message_welcome">Welcome to Socket.IO Chat –</string>
-        <plurals name="message_participants">
-                <item quantity="one">there\'s %d participant</item>
-                <item quantity="other">there are %d participants</item>
-        </plurals>
-        <string name="message_user_joined">%s joined</string>
-        <string name="message_user_left">%s left</string>
-        <string name="user_action_typing">is typing</string>
+        <string name="app_intro_skip" translatable="false">Skip</string>
 
 </resources>

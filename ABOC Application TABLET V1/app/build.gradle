@@ -4,10 +4,10 @@ android {
     compileSdkVersion 25
     buildToolsVersion "25.0.2"
     defaultConfig {
-        applicationId "com.example.suttipongk.testaboc"
+        applicationId "com.longarndu.aboc.mainaboc"
         minSdkVersion 15
         targetSdkVersion 25
-        versionCode 1
+        versionCode 3
         versionName "1.0"
         multiDexEnabled true    // This line was causing above problem
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
