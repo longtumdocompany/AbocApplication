@@ -125,30 +125,30 @@ public class MainActivityScanPaper extends ActionBarActivity {
             }
         }
 
-        if (resultCode == RESULT_OK && null != data) {
-            ArrayList<String> text = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
-
-            //แสดงผลของ Text ที่พูด
-            String spokenText = text.get(0);
-            Log.i("spokenText",spokenText);
-
-            if(spokenText.equals("สแกน") || spokenText.equals("scan")){
-                Log.i("spokenText","scanButton");
-                Intent intent = new Intent(this, ScanActivity.class);
-                intent.putExtra(ScanConstants.OPEN_INTENT_PREFERENCE, 1);
-                startActivityForResult(intent, REQUEST_CODE);
-            } else if(spokenText.equals("กล้อง") || spokenText.equals("camera")){
-                Log.i("spokenText","cameraButton");
-                Intent intent = new Intent(this, ScanActivity.class);
-                intent.putExtra(ScanConstants.OPEN_INTENT_PREFERENCE, 2);
-                startActivityForResult(intent, REQUEST_CODE);
-            } else if(spokenText.equals("สื่อ") || spokenText.equals("media")){
-                Log.i("spokenText","mediaButton");
-                Intent intent = new Intent(this, ScanActivity.class);
-                intent.putExtra(ScanConstants.OPEN_INTENT_PREFERENCE, 3);
-                startActivityForResult(intent, REQUEST_CODE);
-            }
-        }
+//        if (resultCode == RESULT_OK && null != data) {
+//            ArrayList<String> text = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
+//
+//            //แสดงผลของ Text ที่พูด
+//            String spokenText = text.get(0);
+//            Log.i("spokenText",spokenText);
+//
+//            if(spokenText.equals("สแกน") || spokenText.equals("scan")){
+//                Log.i("spokenText","scanButton");
+//                Intent intent = new Intent(this, ScanActivity.class);
+//                intent.putExtra(ScanConstants.OPEN_INTENT_PREFERENCE, 1);
+//                startActivityForResult(intent, REQUEST_CODE);
+//            } else if(spokenText.equals("กล้อง") || spokenText.equals("camera")){
+//                Log.i("spokenText","cameraButton");
+//                Intent intent = new Intent(this, ScanActivity.class);
+//                intent.putExtra(ScanConstants.OPEN_INTENT_PREFERENCE, 2);
+//                startActivityForResult(intent, REQUEST_CODE);
+//            } else if(spokenText.equals("สื่อ") || spokenText.equals("media")){
+//                Log.i("spokenText","mediaButton");
+//                Intent intent = new Intent(this, ScanActivity.class);
+//                intent.putExtra(ScanConstants.OPEN_INTENT_PREFERENCE, 3);
+//                startActivityForResult(intent, REQUEST_CODE);
+//            }
+//        }
     }
 
     private Bitmap convertByteArrayToBitmap(byte[] data) {

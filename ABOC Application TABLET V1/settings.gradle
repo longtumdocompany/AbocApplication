@@ -1,2 +1,1 @@
-include ':app', ':scanlibrary'
-include ':openCVLibrary249'
+include ':app', ':scanlibrary', ':openCVLibrary300'

@@ -474,7 +474,7 @@ public class FdActivity extends AppCompatActivity implements SeekBar.OnSeekBarCh
                 //*******************************************ความสูงของรูปหน้ามากกว่า 100****************************************************
                 if(biggestFace.size().height > 100){
                     Log.d("RectArray", biggestFace.toString());
-                    Core.rectangle(mRgba, biggestFace.tl(), biggestFace.br(), FACE_RECT_COLOR, 3);
+                    Imgproc.rectangle(mRgba, biggestFace.tl(), biggestFace.br(), FACE_RECT_COLOR, 3);
 
                     //split it แบ่งพื้นที่
                     Rect eyearea_right = new Rect(biggestFace.x +biggestFace.width/16,(int)(biggestFace.y + (biggestFace.height/3.5)),(biggestFace.width - 2*biggestFace.width/16)/2,(int)( biggestFace.height/4.0));
@@ -483,32 +483,34 @@ public class FdActivity extends AppCompatActivity implements SeekBar.OnSeekBarCh
 
                     //*******************************************สร้างกรอบ new Rect(x, y, width, height)*******************************************
                     // draw the area - mGray is working grayscale mat, if you want to see area in rgb preview, change mGray to mRgba
-                    Core.rectangle(mRgba,eyearea_left.tl(),eyearea_left.br() , FACE_RECT_COLOR, 2);
-                    Core.rectangle(mRgba,eyearea_right.tl(),eyearea_right.br() , FACE_RECT_COLOR, 2);
-                    Core.rectangle(mRgba,mouthArea.tl(),mouthArea .br() , LIGHT_BLUE, 2);
+                    Imgproc.rectangle(mRgba,eyearea_left.tl(),eyearea_left.br() , FACE_RECT_COLOR, 2);
+                    Imgproc.rectangle(mRgba,eyearea_right.tl(),eyearea_right.br() , FACE_RECT_COLOR, 2);
+                    Imgproc.rectangle(mRgba,mouthArea.tl(),mouthArea .br() , LIGHT_BLUE, 2);
 
                     //********************************************************จับจุดที่ปาก***********************************************************
                     Rect toothArea = new Rect((biggestFace.x+biggestFace.width/3) ,(int)(biggestFace.y + (biggestFace.height*2/3)),(biggestFace.width/3),(int)( biggestFace.height/3));
-                    Core.rectangle(mRgba, toothArea.tl(), toothArea.br(), PINK, 3);
+                    Imgproc.rectangle(mRgba, toothArea.tl(), toothArea.br(), PINK, 3);
                     Mat toothMat= mGray.submat(toothArea).clone();
 
                     Point centerOfToothTL = new Point(toothArea.tl().x+(toothArea.width/2)-(toothArea.width/16), toothArea.tl().y+(toothArea.height/2)-(toothArea.height/16));
                     Point centerOfToothBR = new Point(toothArea.br().x-(toothArea.width/2)+(toothArea.width/16), toothArea.br().y-(toothArea.height/2)+(toothArea.height/16));
                     Rect toothCenter = new Rect(centerOfToothTL, centerOfToothBR);
                     Mat toothCenterMat= mGray.submat(toothCenter).clone();
-                    Core.rectangle(mRgba, centerOfToothTL,centerOfToothBR , RED);
+                    Imgproc.rectangle(mRgba, centerOfToothTL,centerOfToothBR , RED);
 
                     Log.d("tooth", "size:"+toothArea.height+"*"+toothArea.width);
                     Log.d("tooth", ">"+toothMat.dump());
                     int unmask = 0;
                     int avgLight = 0;
 
-                    Core.rectangle(mRgba, centerOfToothTL,centerOfToothBR , RED);
+                    Imgproc.rectangle(mRgba, centerOfToothTL,centerOfToothBR , RED);
                     for(int i = 0 ; i < toothCenterMat.height();i++){
                         for(int j = 0; j < toothCenterMat.width();j++){
                             Scalar tmpColor = new Scalar(0,0,0);
                             if(toothCenterMat.get(i, j)[0] > 100){
-                                Core.circle(mRgba, new Point(toothCenter.x+j, toothCenter.y+i), 2, tmpColor, 1);
+
+                                //TEST Imgproc.rectangle
+                                Imgproc.rectangle(mRgba, new Point(toothCenter.x+j, toothCenter.y+i), new Point(toothCenter.x+j, toothCenter.y+i), tmpColor, 1);
                                 unmask++;
                             }
                         }
@@ -521,7 +523,7 @@ public class FdActivity extends AppCompatActivity implements SeekBar.OnSeekBarCh
                     //*******************************************จับการยิ้ม****************************************************
                     if((double)unmask/(double)numOfTooth > 0.2){
                         if(isSmile && smileCount >= 5){
-                            Core.rectangle(mRgba, new Point(50, 50), new Point(500, 500), LIGHT_BLUE,10);
+                            Imgproc.rectangle(mRgba, new Point(50, 50), new Point(500, 500), LIGHT_BLUE,10);
                             smileCount++;
                         }else{
                             isSmile = true;
@@ -681,7 +683,7 @@ public class FdActivity extends AppCompatActivity implements SeekBar.OnSeekBarCh
         Point  matchLoc_tx = new Point(matchLoc.x+area.x,matchLoc.y+area.y);
         Point  matchLoc_ty = new Point(matchLoc.x + mTemplate.cols() + area.x , matchLoc.y + mTemplate.rows()+area.y );
 
-        Core.rectangle(mRgba, matchLoc_tx,matchLoc_ty, color);
+        Imgproc.rectangle(mRgba, matchLoc_tx,matchLoc_ty, color);
         return (int)(matchLoc.x+(mTemplate.width()/2));
     }
 
@@ -705,11 +707,14 @@ public class FdActivity extends AppCompatActivity implements SeekBar.OnSeekBarCh
             mROI = mGray.submat(eye_only_rectangle);
             Mat vyrez = mRgba.submat(eye_only_rectangle);
             Core.MinMaxLocResult mmG = Core.minMaxLoc(mROI);                            // find the darkness point
-            Core.circle(vyrez, mmG.minLoc,2, new Scalar(255, 255, 255, 255),2);         // draw point to visualise pupil
+
+            //TEST Imgproc.rectangle
+            Imgproc.rectangle(vyrez, mmG.minLoc,mmG.maxLoc, new Scalar(255, 255, 255, 255),2);         // draw point to visualise pupil
+
             iris.x = mmG.minLoc.x + eye_only_rectangle.x;
             iris.y = mmG.minLoc.y + eye_only_rectangle.y;
             eye_template = new Rect((int)iris.x-size/2,(int)iris.y-size/2 ,size,size);
-            Core.rectangle(mRgba,eye_template.tl(),eye_template.br(),new Scalar(255, 0, 0, 255), 2);
+            Imgproc.rectangle(mRgba,eye_template.tl(),eye_template.br(),new Scalar(255, 0, 0, 255), 2);
             template = (mGray.submat(eye_template)).clone();    // copy area to template
             return template;
         }
@@ -728,7 +733,7 @@ public class FdActivity extends AppCompatActivity implements SeekBar.OnSeekBarCh
             Rect e = eyesArray[i];
             e.x = area.x + e.x;
             e.y = area.y + e.y;
-            Core.rectangle(mRgba, e.tl(), e.br(), RED, 3);
+            Imgproc.rectangle(mRgba, e.tl(), e.br(), RED, 3);
             return mGray.submat(e).clone();
         }
         return template;
